@@ -1,0 +1,171 @@
+/* Global RESET */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+picture,
+svg,
+img {
+  max-width: 100%;
+  display: block;
+}
+
+body {
+  font-family: "Amita", cursive;
+}
+
+h1 {
+  font-size: 4.8rem;
+}
+
+h2 {
+  font-size: 3.2rem;
+}
+
+.container {
+  --max-width: 900px;
+  --padding-container: 2.4rem;
+
+  width: min(var(--max-width), 100% - 2 * var(--padding-container));
+  margin-inline: auto;
+}
+
+.flex {
+  display: flex;
+  gap: var(--flex-gutter, 3.2rem);
+}
+
+.place-item-center {
+  display: grid;
+  place-items: center;
+}
+
+/* HEROstyling */
+.hero {
+  height: 90svh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.276), rgba(0, 0, 0, 0.254)),
+    url("https://images.unsplash.com/photo-1526712318848-5f38e2740d44?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+/* Company intro styling */
+.company-intro {
+  height: 90svh;
+  /* background-color: rgb(187, 115, 115); */
+  padding-top: 6.2rem;
+}
+
+.intro-container {
+  align-items: center;
+}
+
+.intro-container > * {
+  width: 100%;
+}
+
+.intro {
+  position: relative;
+  isolation: isolate;
+}
+
+.intro--before,
+.intro--after {
+  position: absolute;
+  width: 100%;
+  height: 15rem;
+}
+
+.intro--before {
+  background-color: rgba(255, 235, 205, 1);
+  top: -3rem;
+  z-index: -1;
+  transform: translateX(-30rem);
+  transition: ease 0.5s 0.5s;
+  opacity: 0;
+}
+
+.intro--after {
+  background-color: rgba(128, 128, 128, 0.573);
+  top: -1rem;
+  left: -3rem;
+  z-index: -2;
+  transform: translateX(-40rem);
+  transition: ease-in 0.5s;
+}
+
+.intro-name {
+  padding-inline: 2.4rem;
+}
+
+.img {
+  object-fit: cover;
+  width: 100%;
+  height: 40rem;
+  transition: width 1s ease;
+}
+
+.img.reduce-size {
+  width: 0;
+}
+
+/* Slide right (For JS) */
+.intro--before.slide-right {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.intro--after.slide-right {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Text animation with Transition delay */
+
+.h2-first-span,
+.h2-second-span,
+.h2-third-span {
+  display: inline-block;
+  transform: translateX(-30rem);
+  opacity: 0;
+}
+
+.h2-first-span {
+  transition: ease 0.8s 1.7s;
+}
+
+.h2-second-span {
+  transition: ease 0.8s 1.5s;
+}
+
+.h2-third-span {
+  transition: ease 0.8s 1s;
+}
+
+.h2-first-span.slide-right,
+.h2-second-span.slide-right,
+.h2-third-span.slide-right {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.intro-p {
+  transform: translateY(-5rem);
+  opacity: 0;
+  transition: ease 1s 2s;
+  color: gray;
+}
+
+.intro-p.slide-down {
+  transform: translateY(0);
+  opacity: 1;
+}
